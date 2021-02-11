@@ -1,7 +1,6 @@
-# API_YaMDb
-
 ![yamdb_workflow](https://github.com/Rybakov-Ilay/yamdb_final/workflows/yamdb_workflow/badge.svg)
 
+# API_YaMDb
 ___
 
 The YaMDb project collects user reviews (Title). 
