@@ -24,7 +24,8 @@ class Genre(models.Model):
 class Title(models.Model):
     name = models.CharField(max_length=60, db_index=True)
     year = models.IntegerField(
-        db_index=True, validators=[MaxValueValidator(datetime.date.today().year)]
+        db_index=True,
+        validators=[MaxValueValidator(datetime.date.today().year)]
     )
     description = models.TextField()
     genre = models.ManyToManyField(Genre, related_name="titles")
@@ -48,7 +49,11 @@ class Review(models.Model):
     score = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(10)], null=False,
     )
-    pub_date = models.DateTimeField(auto_now_add=True, null=False, blank=False,)
+    pub_date = models.DateTimeField(
+        auto_now_add=True,
+        null=False,
+        blank=False,
+    )
 
     class Meta:
         ordering = ["pub_date"]
@@ -56,7 +61,11 @@ class Review(models.Model):
 
 
 class Comment(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="comments"
+    )
     review = models.ForeignKey(
         Review, on_delete=models.CASCADE, related_name="comments"
     )
