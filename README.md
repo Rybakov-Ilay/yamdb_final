@@ -1,4 +1,7 @@
 # API_YaMDb
+
+![yamdb_workflow](https://github.com/Rybakov-Ilay/yamdb_final/workflows/yamdb_workflow/badge.svg)
+
 ___
 
 The YaMDb project collects user reviews (Title). 
@@ -79,5 +82,4 @@ License - see the LICENSE.md file for details
 
 Language: ![https://img.shields.io/badge/Python-3.6.9-blue](https://img.shields.io/badge/Python-3.6.9-blue)
 
-![yamdb_workflow](https://github.com/Rybakov-Ilay/yamdb_final/workflows/yamdb_workflow/badge.svg)
 
