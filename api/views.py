@@ -7,9 +7,14 @@ from users.permissions import IsAdmin
 from .filter import TitleFilter
 from .models import Category, Comment, Genre, Review, Title
 from .permissions import IsModerator, IsOwner, ReadOnly
-from .serializers import (CategorySerializer, CommentSerializer,
-                          GenreSerializer, ReviewSerializer,
-                          TitleCreateSerializer, TitleListSerializer)
+from .serializers import (
+    CategorySerializer,
+    CommentSerializer,
+    GenreSerializer,
+    ReviewSerializer,
+    TitleCreateSerializer,
+    TitleListSerializer,
+)
 
 
 class ListCreateDeleteApiViewSet(
@@ -78,14 +83,12 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         review = get_object_or_404(
-            Review, pk=self.kwargs["review_id"],
-            title_id=self.kwargs["title_id"],
+            Review, pk=self.kwargs["review_id"], title_id=self.kwargs["title_id"],
         )
         return review.comments.all()
 
     def perform_create(self, serializer):
         review = get_object_or_404(
-            Review, pk=self.kwargs["review_id"],
-            title_id=self.kwargs["title_id"],
+            Review, pk=self.kwargs["review_id"], title_id=self.kwargs["title_id"],
         )
         serializer.save(author=self.request.user, review=review)

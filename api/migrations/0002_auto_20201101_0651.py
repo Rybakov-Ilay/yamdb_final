@@ -10,47 +10,70 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('api', '0001_initial'),
+        ("api", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='comment',
-            options={'ordering': ['id'], 'verbose_name': 'Comment'},
+            name="comment", options={"ordering": ["id"], "verbose_name": "Comment"},
         ),
         migrations.AlterField(
-            model_name='comment',
-            name='author',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to=settings.AUTH_USER_MODEL),
+            model_name="comment",
+            name="author",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="comments",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='comment',
-            name='review',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='api.Review'),
+            model_name="comment",
+            name="review",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="comments",
+                to="api.Review",
+            ),
         ),
         migrations.AlterField(
-            model_name='review',
-            name='author',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='reviews', to=settings.AUTH_USER_MODEL),
+            model_name="review",
+            name="author",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="reviews",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='review',
-            name='title',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='reviews', to='api.Title'),
+            model_name="review",
+            name="title",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="reviews",
+                to="api.Title",
+            ),
         ),
         migrations.AlterField(
-            model_name='title',
-            name='category',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='titles', to='api.Category'),
+            model_name="title",
+            name="category",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="titles",
+                to="api.Category",
+            ),
         ),
         migrations.AlterField(
-            model_name='title',
-            name='genre',
-            field=models.ManyToManyField(related_name='titles', to='api.Genre'),
+            model_name="title",
+            name="genre",
+            field=models.ManyToManyField(related_name="titles", to="api.Genre"),
         ),
         migrations.AlterField(
-            model_name='title',
-            name='year',
-            field=models.IntegerField(db_index=True, validators=[django.core.validators.MaxValueValidator(2020)]),
+            model_name="title",
+            name="year",
+            field=models.IntegerField(
+                db_index=True,
+                validators=[django.core.validators.MaxValueValidator(2020)],
+            ),
         ),
     ]
