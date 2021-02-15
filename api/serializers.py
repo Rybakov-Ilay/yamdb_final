@@ -39,14 +39,14 @@ class TitleListSerializer(serializers.ModelSerializer):
 
 
 class ReviewSerializer(serializers.ModelSerializer):
-    author = serializers.SlugRelatedField(slug_field="username", read_only=True) # noqa
+    author = serializers.SlugRelatedField(slug_field="username", read_only=True)  # noqa
 
     def validate(self, data):
         title = self.context["title"]
         request = self.context["request"]
         if (
             request.method != "PATCH"
-            and Review.objects.filter(title=title, author=request.user).exists() # noqa
+            and Review.objects.filter(title=title, author=request.user).exists()  # noqa
         ):
             raise serializers.ValidationError(
                 "О произведении можно оставить только один отзыв"

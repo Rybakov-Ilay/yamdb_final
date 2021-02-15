@@ -34,7 +34,7 @@ class GetConfirmationCode(APIView):
             f"Ваш confirmation_code: {confirmation_code}\n"
         )
         send_mail(
-            subject, body, EMAIL_FROM_DEFOULT, [user.email,], fail_silently=False,
+            subject, body, EMAIL_FROM_DEFOULT, [user.email, ], fail_silently=False,
         )
 
         return Response(serializer.data, status=200)
