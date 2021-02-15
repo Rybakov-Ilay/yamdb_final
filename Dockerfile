@@ -4,4 +4,4 @@ WORKDIR /code
 COPY . .
 RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
-CMD gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000
+CMD gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8001
