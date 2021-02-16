@@ -20,7 +20,7 @@ Clone the repository from github.
 
 `https://github.com/Rybakov-Ilay/yamdb_final`
 
-Change to the yamdb_final directory and create a .env file. In it, write down the settings for connecting to the
+Change to the yamdb_final directory and create a `.env` file. In it, write down the settings for connecting to the
 database.
 
 Example:
