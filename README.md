@@ -69,7 +69,7 @@ Site is working on  http://0.0.0.0:8001/
 
 * At http://0.0.0.0:8001/redoc/ there is documentation for working with API_YaMDb.
 
-* At http://0.0.0.0:8001/redoc/ site admin panel available
+* At http://0.0.0.0:8001/admin/ site admin panel available
 
 ## Example
 
